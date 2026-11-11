@@ -12,6 +12,9 @@ public class SelectionSort implements IAlgoritmoOrdenacao {
   @Override
 	
   public void ordenarVetor(int[] vetor) {
+    if (vetor == null || vetor.length <= 1) {
+      return;
+    }
 	
     for(int i = 0; i < vetor.length; i++) {
 		    	  

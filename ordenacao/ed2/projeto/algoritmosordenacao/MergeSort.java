@@ -12,7 +12,9 @@ public class MergeSort implements IAlgoritmoOrdenacao {
   @Override
 	
   public void ordenarVetor(int[] vetor) {
-	
+    if (vetor == null || vetor.length <= 1) {
+      return;
+    }
     this.mergeSort( vetor, 0, ( vetor.length - 1 ) );
   }
 
@@ -37,12 +39,13 @@ public class MergeSort implements IAlgoritmoOrdenacao {
 		
     int posLivre, inicioVetor1, inicioVetor2;
 	    
-    int aux[] = new int[vetor.length];
+    int tamanho = fim - inicio + 1;
+    int aux[] = new int[tamanho];
 	    
     inicioVetor1 = inicio;
     inicioVetor2 = meio + 1;
 	    
-    posLivre = inicio;
+    posLivre = 0;
 	    
     while( ( inicioVetor1 <= meio ) && ( inicioVetor2 <= fim ) ) {
 	    	
@@ -80,9 +83,9 @@ public class MergeSort implements IAlgoritmoOrdenacao {
 	      
     } // FOR VETOR 2
 	    
-    for(int i = inicio; i <= fim; i++) {
+    for(int i = 0; i < tamanho; i++) {
 	    	
-      vetor[i] = aux[i];
+      vetor[inicio + i] = aux[i];
 	      
     } // FOR VETOR COMPLETO
 	    	
