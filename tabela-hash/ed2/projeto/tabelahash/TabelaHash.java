@@ -5,7 +5,7 @@ public class TabelaHash {
     private static final int TAMANHO = 11;
 
     // Provisorio: sera substituido pelas classes Aluno e No (etapas 11 e 12).
-    private static class No {
+    static class No {
         int matricula;
         String nome;
         int idade;
@@ -50,5 +50,16 @@ public class TabelaHash {
             }
             atual = atual.proximo;
         }
+    }
+
+    // Devolve o no com a matricula ou null se nao existir.
+    public No buscar(int matricula) {
+        int endereco = hash(matricula);
+        for (No atual = tabela[endereco]; atual != null; atual = atual.proximo) {
+            if (atual.matricula == matricula) {
+                return atual;
+            }
+        }
+        return null;
     }
 }
