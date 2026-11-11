@@ -62,4 +62,28 @@ public class TabelaHash {
         }
         return null;
     }
+
+    // Remove o aluno com a matricula. Devolve true se removeu e false se nao existe.
+    public boolean remover(int matricula) {
+        int endereco = hash(matricula);
+        No atual = tabela[endereco];
+        if (atual == null) {
+            return false;
+        }
+        if (atual.matricula == matricula) {
+            tabela[endereco] = atual.proximo;
+            return true;
+        }
+        No anterior = atual;
+        atual = atual.proximo;
+        while (atual != null) {
+            if (atual.matricula == matricula) {
+                anterior.proximo = atual.proximo;
+                return true;
+            }
+            anterior = atual;
+            atual = atual.proximo;
+        }
+        return false;
+    }
 }
