@@ -71,17 +71,35 @@ Implementar uma Tabela Hash com encadeamento para armazenar alunos.
 - IDE: Visual Studio Code
 - Controle de versão: Git e GitHub
 
-## Compilação
+## Compilação e Execução
 
-No terminal, a partir da raiz do projeto, execute:
+O projeto conta com atalhos prontos para **Linux, macOS e Windows**, compilando automaticamente os arquivos `.class` na pasta isolada `bin/` e iniciando o menu:
 
-```powershell
-javac -encoding windows-1252 -d . ordenacao\ed2\projeto\algoritmosordenacao\*.java
+### Linux e macOS (via `make`)
+
+```bash
+make ordenacao
 ```
 
-O comando compila os arquivos Java existentes na pasta de ordenação.
+### Windows — PowerShell ou CMD (via `run.bat`)
 
-A codificação Windows-1252 é utilizada para compatibilidade com os arquivos originais fornecidos pelo professor.
+```powershell
+.\run ordenacao
+```
+
+### Comandos manuais do Java (qualquer sistema)
+
+Para compilar manualmente na pasta isolada `bin/`:
+
+```bash
+javac -d bin ordenacao/ed2/projeto/algoritmosordenacao/*.java
+```
+
+Para executar o menu principal a partir da pasta `bin/`:
+
+```bash
+java -cp bin ed2.projeto.algoritmosordenacao.Main
+```
 
 ## Organização do desenvolvimento
 
