@@ -1,4 +1,4 @@
-.PHONY: all ordenacao testar hash clean
+.PHONY: all ordenacao testar visualizar simular hash clean
 
 all: ordenacao
 
@@ -9,6 +9,14 @@ ordenacao:
 teste:
 	@javac -d bin ordenacao/ed2/projeto/algoritmosordenacao/*.java
 	@java -cp bin ed2.projeto.algoritmosordenacao.Main --testar
+
+visualizar:
+	@javac -d bin ordenacao/ed2/projeto/algoritmosordenacao/*.java
+	@java -cp bin ed2.projeto.algoritmosordenacao.VisualizadorOrdenacao
+
+simular:
+	@javac -d bin ordenacao/ed2/projeto/algoritmosordenacao/*.java
+	@java -cp bin ed2.projeto.algoritmosordenacao.BenchmarkOrdenacao
 
 hash:
 	@echo "Compilando e executando Parte 2 (Tabela Hash)..."

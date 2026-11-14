@@ -1,6 +1,7 @@
 # Compiled class file
 *.class
 bin/
+docs/roteiro_apresentacao.md
 
 # Log file
 *.log
