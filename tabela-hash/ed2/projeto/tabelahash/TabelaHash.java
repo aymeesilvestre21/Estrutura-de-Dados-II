@@ -45,4 +45,26 @@ public class TabelaHash {
     public boolean remover(int matricula) {
         return tabela[hash(matricula)].remover(matricula);
     }
+
+    // Exibe todas as posicoes e os encadeamentos na ordem de insercao.
+    public void exibir() {
+        for (int i = 0; i < tabela.length; i++) {
+            System.out.print("[" + i + "]: ");
+            No atual = tabela[i].getPrimeiro();
+
+            if (atual == null) {
+                System.out.println("Vazia");
+                continue;
+            }
+
+            while (atual != null) {
+                System.out.print("[" + atual.getAluno() + "]");
+                atual = atual.getProximo();
+                if (atual != null) {
+                    System.out.print(" -> ");
+                }
+            }
+            System.out.println();
+        }
+    }
 }
