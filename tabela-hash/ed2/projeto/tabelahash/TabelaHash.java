@@ -3,24 +3,16 @@ package ed2.projeto.tabelahash;
 public class TabelaHash {
 
     private static final int TAMANHO = 11;
+    private final ListaEncadeada[] tabela;
 
-    // Provisorio: sera substituido pelas classes Aluno e No (etapas 11 e 12).
-    static class No {
-        int matricula;
-        String nome;
-        int idade;
-        No proximo;
-
-        No(int matricula, String nome, int idade) {
-            this.matricula = matricula;
-            this.nome = nome;
-            this.idade = idade;
+    public TabelaHash() {
+        tabela = new ListaEncadeada[TAMANHO];
+        for (int i = 0; i < tabela.length; i++) {
+            tabela[i] = new ListaEncadeada();
         }
     }
 
-    private No[] tabela = new No[TAMANHO];
-
-    // Calcula o endereco da matricula. Lanca IllegalArgumentException se for negativa.
+    // Calcula o endereco da matricula. Rejeita matriculas negativas.
     public int hash(int matricula) {
         if (matricula < 0) {
             throw new IllegalArgumentException("Matricula invalida: deve ser maior ou igual a zero.");
@@ -28,62 +20,29 @@ public class TabelaHash {
         return matricula % TAMANHO;
     }
 
-    // Devolve true se inseriu e false se a matricula ja existe.
-    // Em caso de colisao, insere no final da lista encadeada.
+    // Insere no final da lista e rejeita matriculas duplicadas.
     public boolean inserir(int matricula, String nome, int idade) {
         int endereco = hash(matricula);
-        No novo = new No(matricula, nome, idade);
-
-        if (tabela[endereco] == null) {
-            tabela[endereco] = novo;
-            return true;
+        if (buscar(matricula) != null) {
+            return false;
         }
-
-        No atual = tabela[endereco];
-        while (true) {
-            if (atual.matricula == matricula) {
-                return false;
-            }
-            if (atual.proximo == null) {
-                atual.proximo = novo;
-                return true;
-            }
-            atual = atual.proximo;
-        }
+        tabela[endereco].inserirNoFinal(new Aluno(matricula, nome, idade));
+        return true;
     }
 
     // Devolve o no com a matricula ou null se nao existir.
     public No buscar(int matricula) {
         int endereco = hash(matricula);
-        for (No atual = tabela[endereco]; atual != null; atual = atual.proximo) {
-            if (atual.matricula == matricula) {
+        for (No atual = tabela[endereco].getPrimeiro(); atual != null; atual = atual.getProximo()) {
+            if (atual.getAluno().getMatricula() == matricula) {
                 return atual;
             }
         }
         return null;
     }
 
-    // Remove o aluno com a matricula. Devolve true se removeu e false se nao existe.
+    // Remove o aluno com a matricula, se existir.
     public boolean remover(int matricula) {
-        int endereco = hash(matricula);
-        No atual = tabela[endereco];
-        if (atual == null) {
-            return false;
-        }
-        if (atual.matricula == matricula) {
-            tabela[endereco] = atual.proximo;
-            return true;
-        }
-        No anterior = atual;
-        atual = atual.proximo;
-        while (atual != null) {
-            if (atual.matricula == matricula) {
-                anterior.proximo = atual.proximo;
-                return true;
-            }
-            anterior = atual;
-            atual = atual.proximo;
-        }
-        return false;
+        return tabela[hash(matricula)].remover(matricula);
     }
 }
