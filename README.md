@@ -26,7 +26,15 @@ Estrutura-de-Dados-II/
 │               ├── Utils.java
 │               └── IAlgoritmoOrdenacao.java
 ├── tabela-hash/
-│   └── .gitkeep
+│   └── ed2/
+│       └── projeto/
+│           └── tabelahash/
+│               ├── Aluno.java
+│               ├── ListaEncadeada.java
+│               ├── No.java
+│               ├── Principal.java
+│               ├── TabelaHash.java
+│               └── TesteTabelaHash.java
 ├── .gitignore
 └── README.md
 ```
@@ -54,7 +62,7 @@ As simulações e a comparação das Etapas 9 e 10 estão documentadas em [docs/
 
 ## Parte 2 — Tabela Hash
 
-Implementar uma Tabela Hash com encadeamento para armazenar alunos.
+A Tabela Hash com encadeamento armazena alunos e oferece inserção, busca, remoção e exibição pelo menu.
 
 ### Requisitos
 
@@ -109,6 +117,16 @@ Para medir os cinco algoritmos em vetores embaralhados de 10, 100 e 1.000 elemen
 
 No Linux e macOS, use `make simular`. Os resultados dependem da máquina e da JVM.
 
+### Tabela Hash
+
+Para compilar e iniciar o menu da Tabela Hash:
+
+```powershell
+.\run.bat hash
+```
+
+No Linux e macOS, use `make hash`.
+
 ### Comandos manuais do Java (qualquer sistema)
 
 Para compilar manualmente na pasta isolada `bin/`:
@@ -121,6 +139,12 @@ Para executar o menu principal a partir da pasta `bin/`:
 
 ```bash
 java -cp bin ed2.projeto.algoritmosordenacao.Main
+```
+
+Para executar o menu da Tabela Hash a partir da pasta `bin/`:
+
+```bash
+java -cp bin ed2.projeto.tabelahash.Principal
 ```
 
 ## Organização do desenvolvimento
@@ -136,9 +160,9 @@ java -cp bin ed2.projeto.algoritmosordenacao.Main
 - [x] Importação das classes de ordenação.
 - [x] Criação da interface IAlgoritmoOrdenacao.
 - [x] Verificação da compilação inicial.
-- [ ] Implementação do menu principal.
+- [x] Implementação do menu principal.
 - [ ] Conclusão das funcionalidades de ordenação.
-- [ ] Implementação da Tabela Hash.
+- [x] Implementação da Tabela Hash.
 - [ ] Testes finais e integração.
 
 ## Entrega
