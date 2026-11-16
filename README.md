@@ -161,7 +161,7 @@ java -cp bin ed2.projeto.tabelahash.Principal
 - [x] Criação da interface IAlgoritmoOrdenacao.
 - [x] Verificação da compilação inicial.
 - [x] Implementação do menu principal.
-- [ ] Conclusão das funcionalidades de ordenação.
+- [x] Conclusão das funcionalidades de ordenação.
 - [x] Implementação da Tabela Hash.
 - [x] Testes finais e integração.
 
