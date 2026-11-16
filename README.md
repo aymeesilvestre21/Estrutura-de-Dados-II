@@ -163,7 +163,7 @@ java -cp bin ed2.projeto.tabelahash.Principal
 - [x] Implementação do menu principal.
 - [ ] Conclusão das funcionalidades de ordenação.
 - [x] Implementação da Tabela Hash.
-- [ ] Testes finais e integração.
+- [x] Testes finais e integração.
 
 ## Entrega
 
