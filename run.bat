@@ -35,7 +35,10 @@ if /I "%COMANDO%"=="simular" (
 )
 
 if /I "%COMANDO%"=="hash" (
-    echo A Parte 2 ^(tabela-hash^) sera executada aqui quando implementada.
+    if not exist bin mkdir bin
+    javac -d bin tabela-hash\ed2\projeto\tabelahash\*.java
+    if errorlevel 1 exit /b 1
+    java -cp bin ed2.projeto.tabelahash.Principal
     goto :eof
 )
 
