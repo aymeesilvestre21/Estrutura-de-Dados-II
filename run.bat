@@ -18,6 +18,22 @@ if /I "%COMANDO%"=="testar" (
     goto :eof
 )
 
+if /I "%COMANDO%"=="visualizar" (
+    if not exist bin mkdir bin
+    javac -d bin ordenacao\ed2\projeto\algoritmosordenacao\*.java
+    if errorlevel 1 exit /b 1
+    java -cp bin ed2.projeto.algoritmosordenacao.VisualizadorOrdenacao
+    goto :eof
+)
+
+if /I "%COMANDO%"=="simular" (
+    if not exist bin mkdir bin
+    javac -d bin ordenacao\ed2\projeto\algoritmosordenacao\*.java
+    if errorlevel 1 exit /b 1
+    java -cp bin ed2.projeto.algoritmosordenacao.BenchmarkOrdenacao
+    goto :eof
+)
+
 if /I "%COMANDO%"=="hash" (
     echo A Parte 2 ^(tabela-hash^) sera executada aqui quando implementada.
     goto :eof
@@ -29,4 +45,4 @@ if /I "%COMANDO%"=="clean" (
     goto :eof
 )
 
-echo Uso: run [ordenacao ^| testar ^| hash ^| clean]
+echo Uso: run [ordenacao ^| testar ^| visualizar ^| simular ^| hash ^| clean]
