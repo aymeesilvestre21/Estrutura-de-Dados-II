@@ -1,4 +1,3 @@
-
 package ed2.projeto.algoritmosordenacao;
 
 /**
@@ -13,11 +12,14 @@ public class QuickSort implements IAlgoritmoOrdenacao {
 
   }
   
-  // Métodos
+  // MÃ©todos
   
   @Override
 	
   public void ordenarVetor(int[] vetor) {
+    if (vetor == null || vetor.length <= 1) {
+      return;
+    }
 	
     this.quickSort( vetor, 0, ( vetor.length - 1 ) );
     

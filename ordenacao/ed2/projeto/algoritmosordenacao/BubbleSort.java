@@ -12,6 +12,9 @@ public class BubbleSort implements IAlgoritmoOrdenacao {
   @Override
 	
   public void ordenarVetor(int[] vetor) {
+    if (vetor == null || vetor.length <= 1) {
+      return;
+    }
 
     boolean isTroca;
 
