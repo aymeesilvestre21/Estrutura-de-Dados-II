@@ -1,0 +1,51 @@
+@echo off
+set COMANDO=%1
+if "%COMANDO%"=="" set COMANDO=ordenacao
+
+if /I "%COMANDO%"=="ordenacao" (
+    if not exist bin mkdir bin
+    javac -d bin ordenacao\ed2\projeto\algoritmosordenacao\*.java
+    if errorlevel 1 exit /b 1
+    java -cp bin ed2.projeto.algoritmosordenacao.Main
+    goto :eof
+)
+
+if /I "%COMANDO%"=="testar" (
+    if not exist bin mkdir bin
+    javac -d bin ordenacao\ed2\projeto\algoritmosordenacao\*.java
+    if errorlevel 1 exit /b 1
+    java -cp bin ed2.projeto.algoritmosordenacao.Main --testar
+    goto :eof
+)
+
+if /I "%COMANDO%"=="visualizar" (
+    if not exist bin mkdir bin
+    javac -d bin ordenacao\ed2\projeto\algoritmosordenacao\*.java
+    if errorlevel 1 exit /b 1
+    java -cp bin ed2.projeto.algoritmosordenacao.VisualizadorOrdenacao
+    goto :eof
+)
+
+if /I "%COMANDO%"=="simular" (
+    if not exist bin mkdir bin
+    javac -d bin ordenacao\ed2\projeto\algoritmosordenacao\*.java
+    if errorlevel 1 exit /b 1
+    java -cp bin ed2.projeto.algoritmosordenacao.BenchmarkOrdenacao
+    goto :eof
+)
+
+if /I "%COMANDO%"=="hash" (
+    if not exist bin mkdir bin
+    javac -d bin tabela-hash\ed2\projeto\tabelahash\*.java
+    if errorlevel 1 exit /b 1
+    java -cp bin ed2.projeto.tabelahash.Principal
+    goto :eof
+)
+
+if /I "%COMANDO%"=="clean" (
+    if exist bin rmdir /s /q bin
+    echo Pasta bin removida.
+    goto :eof
+)
+
+echo Uso: run [ordenacao ^| testar ^| visualizar ^| simular ^| hash ^| clean]
