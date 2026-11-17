@@ -4,7 +4,7 @@ Registro das Etapas 9 e 10 da Parte 1 (Algoritmos de Ordenação). Esta fase sep
 
 ## 1. IA e metodologia
 
-- **IA utilizada na análise:** assistente de IA do GitHub Copilot no VS Code, via Copilot SDK. O identificador exato do modelo não é exposto nesta sessão e, por isso, não é atribuído ou inventado.
+- **IA utilizada na análise:** Copilot Fusion, selecionado no menu Models do VS Code. O Fusion pode selecionar um único modelo ou orquestrar vários; por isso, não é atribuída uma versão específica ao modelo subjacente.
 - **Algoritmos fornecidos para análise:** as implementações Java de `BubbleSort`, `InsertionSort`, `SelectionSort`, `MergeSort` e `QuickSort` presentes no projeto.
 - **Tamanhos:** adotando `n = 10`, foram considerados `n = 10`, `n² = 100`, `n³ = 1.000` e `n¹⁰ = 10.000.000.000`.
 - **Método das estimativas:** análise das operações dominantes das implementações, assumindo uma taxa hipotética uniforme de `100.000.000` operações equivalentes por segundo. Essa taxa é apenas uma referência matemática; não foi medida no computador.
